@@ -1,0 +1,49 @@
+@use "../../presets/index" as *;
+@use "../../mixins/index" as *;
+
+.about {
+  background-color: $color-gray-light;
+
+  &__title {
+    grid-area: b1;
+    font-size: 2em;
+    line-height: $gap;
+    letter-spacing: 4px;
+    color: $color-primary;
+    font-family: $font-header;
+    margin: 0;
+
+    @include sm {
+      text-align: center;
+    }
+  }
+
+  &__info {
+    grid-area: b2;
+    color: $color-gray;
+    font-family: $font-header;
+  }
+
+  &__image {
+    grid-area: b3;
+    background-image: url(../img/img-lamp-webdev.png);
+    background-position: 50% 50%;
+    background-size: 175px;
+    background-repeat: no-repeat;
+  }
+}
+
+.about__container {
+  display: grid;
+  grid-template-areas: "b1 b1 b3" "b2 b2 b3" "b2 b2 b3";
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  padding-top: 50px;
+  padding-bottom: $gap;
+
+  @include sm {
+    grid-template-areas: "b1 b1" "b2 b2" "b3 b3";
+    grid-template-columns: min-content;
+    grid-template-rows: 0.2fr 1fr 1fr;
+  }
+}

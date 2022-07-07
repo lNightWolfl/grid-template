@@ -1,0 +1,63 @@
+@use "../../presets/index" as *;
+@use "../../mixins/index" as *;
+
+.form {
+  margin: 0;
+  border-style: none;
+  padding: 0;
+  background-color: $color-primary;
+
+  &__input {
+    width: 20%;
+    flex-grow: 1;
+    height: 60px;
+    background-color: $color-input;
+    border-style: none;
+
+    @include sm {
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: $color-gray-dark;
+    }
+
+    &::placeholder {
+      color: $color-light;
+      padding-left: 2em;
+    }
+  }
+}
+
+@include md-sm {
+  .form__input:nth-of-type(1) {
+    width: 100%;
+  }
+
+  .form__input:nth-of-type(2) {
+    width: calc(50% - $gap-sm);
+  }
+}
+
+.form__container {
+  display: flex;
+  justify-content: center;
+  gap: $gap;
+  padding: $gap 0;
+  letter-spacing: 2px;
+  font-family: $font-main;
+
+  @include md-sm {
+    flex-wrap: wrap;
+  }
+
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+input[type="text"] {
+  border-bottom: 2px solid $color-light;
+  border-radius: 4px;
+  color: $color-light;
+}

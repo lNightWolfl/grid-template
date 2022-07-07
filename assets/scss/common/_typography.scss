@@ -1,0 +1,43 @@
+@use "../presets/index" as *;
+@use "../mixins/index" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $font-size;
+  font-family: $font-main;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $color-light;
+}
+
+h1 {
+  letter-spacing: 5px;
+  color: $color-light;
+  font-weight: 300;
+  font-family: $font-header;
+  text-align: center;
+
+  @include lg-min {
+    font-size: 3.75rem;
+  }
+
+  @include lg-md {
+    font-size: 2.5rem;
+  }
+
+  @include md {
+    font-size: 1.875rem;
+  }
+}

@@ -1,0 +1,18 @@
+@use "../../presets/index" as *;
+
+.header-logo {
+  font-size: 1.5rem;
+  letter-spacing: 0.25em;
+
+  &__link {
+    display: block;
+    padding: $gap;
+  }
+
+  &__accent {
+    display: inline-block;
+    padding: 17px 7px;
+    border: 3px solid $color-highlight;
+    margin-right: 7px;
+  }
+}

@@ -1,0 +1,96 @@
+@use "../../presets/index" as *;
+@use "../../mixins/index" as *;
+
+.header-navbar {
+  @include md {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__btn {
+    width: 30px;
+    height: 22.5px;
+    position: relative;
+    margin: $gap 0;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    @include md-min {
+      display: none;
+    }
+
+    &-row {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $color-light;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+
+      &:nth-child(1) {
+        top: 0px;
+      }
+
+      &:nth-child(2) {
+        top: 9px;
+      }
+
+      &:nth-child(3) {
+        top: 18px;
+      }
+    }
+
+    &--active span {
+      &:nth-child(1) {
+        top: 9px;
+        transform: rotate(135deg);
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        left: -30px;
+      }
+
+      &:nth-child(3) {
+        top: 9px;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  &__list {
+    @include unlist;
+
+    @include md-min {
+      display: flex;
+      gap: $gap;
+      justify-content: flex-end;
+    }
+
+    @include md {
+      .header-navbar__item {
+        padding: $gap;
+      }
+      display: none;
+      background-color: rgba($color-gray-dark, 0.5);
+      position: absolute;
+      top: 100%;
+      right: 0;
+
+      @include box-shadow;
+    }
+  }
+
+  &__link {
+    transition: 0.5s;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}

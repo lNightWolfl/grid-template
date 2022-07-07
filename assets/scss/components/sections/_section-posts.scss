@@ -1,0 +1,101 @@
+@use "../../presets/index" as *;
+@use "../../mixins/index" as *;
+
+.section__wrapper {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1340px;
+  padding: 0 $gap-lg;
+}
+
+.posts__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap;
+  padding: $gap 0;
+}
+
+.posts__title {
+  font-size: 2.5em;
+  letter-spacing: 4px;
+  font-weight: 700;
+  font-family: $font-header;
+}
+
+@include lg-min {
+  .posts-item:nth-of-type(6n + 1),
+  .posts-item:nth-of-type(6n + 6) {
+    width: calc(50% - 10px);
+
+    .posts-item__image img {
+      aspect-ratio: 630/295;
+    }
+  }
+}
+
+.posts-item {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-overlay-item;
+  text-align: center;
+  width: calc(25% - 15px);
+
+  &__image img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 305/295;
+    object-position: right;
+  }
+
+  &__title {
+    padding: 15px;
+    margin: 0;
+  }
+
+  &__text {
+    padding: 15px;
+  }
+}
+
+.posts-item__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.posts__actions {
+  display: flex;
+  justify-content: center;
+}
+
+@include lg-md {
+  .posts-item:nth-of-type(4n + 1),
+  .posts-item:nth-of-type(4n + 4) {
+    flex-grow: 1;
+
+    .posts-item__image img {
+      aspect-ratio: 630/295;
+    }
+  }
+
+  .posts-item {
+    width: calc(33.33% - 13px);
+  }
+}
+
+@include md-sm {
+  .posts-item {
+    width: calc(50% - 10px);
+  }
+}
+
+@include sm {
+  .posts-item {
+    width: 100%;
+  }
+
+  .posts-item__image img {
+    aspect-ratio: 3/2;
+  }
+}
